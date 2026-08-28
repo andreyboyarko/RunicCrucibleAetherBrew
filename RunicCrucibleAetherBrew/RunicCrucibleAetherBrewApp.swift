@@ -2,11 +2,7 @@
 
 import SwiftUI
 
-@main
-struct RunicCrucibleAetherBrewApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
+// SwiftUI application descriptor; launch ownership remains in AppDelegate.
+struct RunicCrucibleAetherBrewApp {
+    static let RunicCrucibleAetherBrewDisplayName = "Aether Vials: Arcane Brew"
 }

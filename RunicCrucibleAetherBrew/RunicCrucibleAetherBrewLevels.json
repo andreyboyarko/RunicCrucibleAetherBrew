@@ -1,0 +1,1122 @@
+[
+  {
+    "id": 1,
+    "RunicCrucibleAetherBrewTitle": "First Infusion",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "fire",
+        "water",
+        "fire"
+      ],
+      [
+        "fire",
+        "water",
+        "fire",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 1",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 2,
+    "RunicCrucibleAetherBrewTitle": "Clear Current",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "fire",
+        "water",
+        "fire"
+      ],
+      [
+        "fire",
+        "water",
+        "fire",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 2",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 3,
+    "RunicCrucibleAetherBrewTitle": "Twin Flames",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "fire",
+        "water",
+        "fire"
+      ],
+      [
+        "fire",
+        "water",
+        "fire",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 3",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 4,
+    "RunicCrucibleAetherBrewTitle": "Measured Pour",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "fire",
+        "water",
+        "fire"
+      ],
+      [
+        "fire",
+        "water",
+        "fire",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 4",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 5,
+    "RunicCrucibleAetherBrewTitle": "Apprentice Seal",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "fire",
+        "water",
+        "fire"
+      ],
+      [
+        "fire",
+        "water",
+        "fire",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 5",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 6,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 6",
+    "RunicCrucibleAetherBrewTutorial": "Fire is stable. Sort it only with matching Fire.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "fire",
+        "water",
+        "fire"
+      ],
+      [
+        "fire",
+        "nature",
+        "fire",
+        "nature"
+      ],
+      [
+        "nature",
+        "water",
+        "nature",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 6",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 7,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 7",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "fire",
+        "water",
+        "fire"
+      ],
+      [
+        "fire",
+        "nature",
+        "fire",
+        "nature"
+      ],
+      [
+        "nature",
+        "water",
+        "nature",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 7",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 8,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 8",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "fire",
+        "water",
+        "fire"
+      ],
+      [
+        "fire",
+        "nature",
+        "fire",
+        "nature"
+      ],
+      [
+        "nature",
+        "water",
+        "nature",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 8",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 9,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 9",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "fire",
+        "water",
+        "fire"
+      ],
+      [
+        "fire",
+        "nature",
+        "fire",
+        "nature"
+      ],
+      [
+        "nature",
+        "water",
+        "nature",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 9",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 10,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 10",
+    "RunicCrucibleAetherBrewTutorial": "Frost seals a vial for one turn.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "frost",
+        "water",
+        "frost"
+      ],
+      [
+        "frost",
+        "aether",
+        "frost",
+        "aether"
+      ],
+      [
+        "aether",
+        "water",
+        "aether",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 10",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 11,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 11",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "frost",
+        "water",
+        "frost"
+      ],
+      [
+        "frost",
+        "aether",
+        "frost",
+        "aether"
+      ],
+      [
+        "aether",
+        "water",
+        "aether",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 11",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 12,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 12",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "frost",
+        "water",
+        "frost"
+      ],
+      [
+        "frost",
+        "aether",
+        "frost",
+        "aether"
+      ],
+      [
+        "aether",
+        "water",
+        "aether",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 12",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 13,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 13",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "frost",
+        "water",
+        "frost"
+      ],
+      [
+        "frost",
+        "aether",
+        "frost",
+        "aether"
+      ],
+      [
+        "aether",
+        "water",
+        "aether",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 13",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 14,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 14",
+    "RunicCrucibleAetherBrewTutorial": "Nature and Water bloom together.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "nature",
+        "water",
+        "nature"
+      ],
+      [
+        "nature",
+        "frost",
+        "nature",
+        "frost"
+      ],
+      [
+        "frost",
+        "water",
+        "frost",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 14",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 15,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 15",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "nature",
+        "water",
+        "nature"
+      ],
+      [
+        "nature",
+        "frost",
+        "nature",
+        "frost"
+      ],
+      [
+        "frost",
+        "water",
+        "frost",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 15",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 16,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 16",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "nature",
+        "water",
+        "nature"
+      ],
+      [
+        "nature",
+        "frost",
+        "nature",
+        "frost"
+      ],
+      [
+        "frost",
+        "water",
+        "frost",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 16",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 17,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 17",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "water",
+        "nature",
+        "water",
+        "nature"
+      ],
+      [
+        "nature",
+        "frost",
+        "nature",
+        "frost"
+      ],
+      [
+        "frost",
+        "water",
+        "frost",
+        "water"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 17",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 18,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 18",
+    "RunicCrucibleAetherBrewTutorial": "Light and Shadow cannot touch.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "light",
+        "shadow",
+        "light",
+        "shadow"
+      ],
+      [
+        "shadow",
+        "water",
+        "shadow",
+        "water"
+      ],
+      [
+        "water",
+        "light",
+        "water",
+        "light"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature",
+      "polarity"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 18",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 19,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 19",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "light",
+        "shadow",
+        "light",
+        "shadow"
+      ],
+      [
+        "shadow",
+        "water",
+        "shadow",
+        "water"
+      ],
+      [
+        "water",
+        "light",
+        "water",
+        "light"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature",
+      "polarity"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 19",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 20,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 20",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "light",
+        "shadow",
+        "light",
+        "shadow"
+      ],
+      [
+        "shadow",
+        "water",
+        "shadow",
+        "water"
+      ],
+      [
+        "water",
+        "light",
+        "water",
+        "light"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature",
+      "polarity"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 20",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 21,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 21",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "light",
+        "shadow",
+        "light",
+        "shadow"
+      ],
+      [
+        "shadow",
+        "water",
+        "shadow",
+        "water"
+      ],
+      [
+        "water",
+        "light",
+        "water",
+        "light"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature",
+      "polarity"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 21",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 22,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 22",
+    "RunicCrucibleAetherBrewTutorial": "Aether copies the essence beneath it.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "aether",
+        "light",
+        "aether",
+        "light"
+      ],
+      [
+        "light",
+        "shadow",
+        "light",
+        "shadow"
+      ],
+      [
+        "shadow",
+        "aether",
+        "shadow",
+        "aether"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature",
+      "polarity",
+      "aether"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 22",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 23,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 23",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "aether",
+        "light",
+        "aether",
+        "light"
+      ],
+      [
+        "light",
+        "shadow",
+        "light",
+        "shadow"
+      ],
+      [
+        "shadow",
+        "aether",
+        "shadow",
+        "aether"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature",
+      "polarity",
+      "aether"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 23",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 24,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 24",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "aether",
+        "light",
+        "aether",
+        "light"
+      ],
+      [
+        "light",
+        "shadow",
+        "light",
+        "shadow"
+      ],
+      [
+        "shadow",
+        "aether",
+        "shadow",
+        "aether"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature",
+      "polarity",
+      "aether"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 24",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 25,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 25",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "aether",
+        "light",
+        "aether",
+        "light"
+      ],
+      [
+        "light",
+        "shadow",
+        "light",
+        "shadow"
+      ],
+      [
+        "shadow",
+        "aether",
+        "shadow",
+        "aether"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature",
+      "polarity",
+      "aether"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 25",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 26,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 26",
+    "RunicCrucibleAetherBrewTutorial": "Void absorbs one essence, then becomes inert.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "void",
+        "water",
+        "void",
+        "water"
+      ],
+      [
+        "water",
+        "fire",
+        "water",
+        "fire"
+      ],
+      [
+        "fire",
+        "void",
+        "fire",
+        "void"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature",
+      "polarity",
+      "aether",
+      "void"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 26",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 27,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 27",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "void",
+        "water",
+        "void",
+        "water"
+      ],
+      [
+        "water",
+        "fire",
+        "water",
+        "fire"
+      ],
+      [
+        "fire",
+        "void",
+        "fire",
+        "void"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature",
+      "polarity",
+      "aether",
+      "void"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 27",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 28,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 28",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      [
+        "void",
+        "water",
+        "void",
+        "water"
+      ],
+      [
+        "water",
+        "fire",
+        "water",
+        "fire"
+      ],
+      [
+        "fire",
+        "void",
+        "fire",
+        "void"
+      ],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature",
+      "polarity",
+      "aether",
+      "void"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 28",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 29,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 29",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      ["fire", "fire", "fire", "fire"],
+      ["frost", "frost", "frost", "frost"],
+      ["nature", "nature", "nature", "nature"],
+      ["aether", "aether", "aether", "aether"],
+      ["light", "light", "light", "light"],
+      ["shadow", "shadow", "shadow", "shadow"],
+      ["void", "void", "void", "void"],
+      ["water", "water", "water", "water"],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature",
+      "polarity",
+      "aether",
+      "void"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 29",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  },
+  {
+    "id": 30,
+    "RunicCrucibleAetherBrewTitle": "Arcane Trial 30",
+    "RunicCrucibleAetherBrewTutorial": "Sort every essence into a pure vial.",
+    "RunicCrucibleAetherBrewCapacity": 4,
+    "RunicCrucibleAetherBrewVials": [
+      ["water", "water", "water", "water"],
+      ["void", "void", "void", "void"],
+      ["shadow", "shadow", "shadow", "shadow"],
+      ["light", "light", "light", "light"],
+      ["aether", "aether", "aether", "aether"],
+      ["nature", "nature", "nature", "nature"],
+      ["frost", "frost", "frost", "frost"],
+      ["fire", "fire", "fire", "fire"],
+      [],
+      []
+    ],
+    "RunicCrucibleAetherBrewRules": [
+      "standard",
+      "fire",
+      "frost",
+      "nature",
+      "polarity",
+      "aether",
+      "void"
+    ],
+    "RunicCrucibleAetherBrewHintLimit": 3,
+    "RunicCrucibleAetherBrewGoal": {
+      "RunicCrucibleAetherBrewName": "Potion 30",
+      "RunicCrucibleAetherBrewSymbol": "flask.fill"
+    }
+  }
+]
