@@ -180,4 +180,25 @@ final class RunicCrucibleAetherBrewGameEngineTests: XCTestCase {
         RunicCrucibleAetherBrewStore.RunicCrucibleAetherBrewPauseLaboratorySession(RunicCrucibleAetherBrewDate: RunicCrucibleAetherBrewStart.addingTimeInterval(90))
         XCTAssertEqual(RunicCrucibleAetherBrewStore.RunicCrucibleAetherBrewStatistics(RunicCrucibleAetherBrewDate: RunicCrucibleAetherBrewStart.addingTimeInterval(500)).RunicCrucibleAetherBrewLaboratoryTime, 90)
     }
+
+    func testRunicCrucibleAetherBrewFinaleUnlocksOnceAndResetClearsIt() {
+        let (RunicCrucibleAetherBrewStore, RunicCrucibleAetherBrewDefaults) = RunicCrucibleAetherBrewStatisticsStore()
+        XCTAssertFalse(RunicCrucibleAetherBrewStore.RunicCrucibleAetherBrewIsFinaleUnlocked)
+        RunicCrucibleAetherBrewStore.RunicCrucibleAetherBrewUnlockFinale()
+        RunicCrucibleAetherBrewStore.RunicCrucibleAetherBrewUnlockFinale()
+        XCTAssertTrue(RunicCrucibleAetherBrewStore.RunicCrucibleAetherBrewIsFinaleUnlocked)
+        RunicCrucibleAetherBrewStore.RunicCrucibleAetherBrewReset()
+        XCTAssertFalse(RunicCrucibleAetherBrewStore.RunicCrucibleAetherBrewIsFinaleUnlocked)
+        XCTAssertTrue(RunicCrucibleAetherBrewDefaults.bool(forKey: "RunicCrucibleAetherBrewOnboardingComplete"))
+    }
+
+    func testRunicCrucibleAetherBrewRepeatedLevelThirtyVictoryDoesNotDuplicateUniqueStatistics() {
+        let (RunicCrucibleAetherBrewStore, _) = RunicCrucibleAetherBrewStatisticsStore()
+        RunicCrucibleAetherBrewStore.RunicCrucibleAetherBrewComplete(RunicCrucibleAetherBrewLevel: 30, RunicCrucibleAetherBrewMoves: 120, RunicCrucibleAetherBrewIsPerfect: true)
+        RunicCrucibleAetherBrewStore.RunicCrucibleAetherBrewComplete(RunicCrucibleAetherBrewLevel: 30, RunicCrucibleAetherBrewMoves: 110, RunicCrucibleAetherBrewIsPerfect: true)
+        let RunicCrucibleAetherBrewStatistics = RunicCrucibleAetherBrewStore.RunicCrucibleAetherBrewStatistics()
+        XCTAssertEqual(RunicCrucibleAetherBrewStatistics.RunicCrucibleAetherBrewCompletedLevels, 1)
+        XCTAssertEqual(RunicCrucibleAetherBrewStatistics.RunicCrucibleAetherBrewPerfectCompletions, 1)
+        XCTAssertEqual(RunicCrucibleAetherBrewStore.RunicCrucibleAetherBrewBestMoves(RunicCrucibleAetherBrewLevel: 30), 110)
+    }
 }

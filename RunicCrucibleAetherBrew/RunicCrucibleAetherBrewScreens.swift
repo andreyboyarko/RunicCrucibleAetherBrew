@@ -1,5 +1,6 @@
 import SwiftUI
 import SafariServices
+import SpriteKit
 
 struct RunicCrucibleAetherBrewHomeMapView: View {
     @State private var RunicCrucibleAetherBrewRefresh = UUID()
@@ -77,6 +78,7 @@ struct RunicCrucibleAetherBrewSettingsView: View {
 
 struct RunicCrucibleAetherBrewStatisticsView: View {
     @State private var RunicCrucibleAetherBrewStatistics = RunicCrucibleAetherBrewProgressStore.RunicCrucibleAetherBrewShared.RunicCrucibleAetherBrewStatistics()
+    @State private var RunicCrucibleAetherBrewShowsFinaleReplay = false
     private let RunicCrucibleAetherBrewColumns = [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)]
 
     var body: some View {
@@ -93,12 +95,24 @@ struct RunicCrucibleAetherBrewStatisticsView: View {
                         RunicCrucibleAetherBrewStatisticCard(RunicCrucibleAetherBrewValue: "\(RunicCrucibleAetherBrewStatistics.RunicCrucibleAetherBrewCurrentDailyStreak)", RunicCrucibleAetherBrewTitle: "Daily Streak", RunicCrucibleAetherBrewSymbol: "flame.fill")
                         RunicCrucibleAetherBrewStatisticCard(RunicCrucibleAetherBrewValue: RunicCrucibleAetherBrewTimeText, RunicCrucibleAetherBrewTitle: "Laboratory Time", RunicCrucibleAetherBrewSymbol: "clock.fill")
                     }
+                    if RunicCrucibleAetherBrewProgressStore.RunicCrucibleAetherBrewShared.RunicCrucibleAetherBrewIsFinaleUnlocked {
+                        Button { RunicCrucibleAetherBrewShowsFinaleReplay = true } label: {
+                            Label("Replay Finale", systemImage: "sparkles")
+                                .font(RunicCrucibleAetherBrewDesignSystem.RunicCrucibleAetherBrewBodyFont.weight(.bold))
+                                .foregroundColor(RunicCrucibleAetherBrewDesignSystem.RunicCrucibleAetherBrewTextPrimary)
+                                .frame(maxWidth: .infinity, minHeight: 48)
+                        }
+                        .buttonStyle(.plain)
+                        .RunicCrucibleAetherBrewGlassPanel()
+                        .accessibilityIdentifier("RunicCrucibleAetherBrewReplayFinale")
+                    }
                 }.padding(18)
             }
         }
         .navigationTitle("Player Statistics")
         .navigationBarTitleDisplayMode(.large)
         .onAppear { RunicCrucibleAetherBrewStatistics = RunicCrucibleAetherBrewProgressStore.RunicCrucibleAetherBrewShared.RunicCrucibleAetherBrewStatistics() }
+        .fullScreenCover(isPresented: $RunicCrucibleAetherBrewShowsFinaleReplay) { RunicCrucibleAetherBrewFinaleReplayView() }
     }
 
     private var RunicCrucibleAetherBrewFavoriteCard: some View {
@@ -118,6 +132,60 @@ struct RunicCrucibleAetherBrewStatisticsView: View {
         let RunicCrucibleAetherBrewMinutes = Int(RunicCrucibleAetherBrewStatistics.RunicCrucibleAetherBrewLaboratoryTime) / 60
         let RunicCrucibleAetherBrewHours = RunicCrucibleAetherBrewMinutes / 60
         return RunicCrucibleAetherBrewHours > 0 ? "\(RunicCrucibleAetherBrewHours)h \(RunicCrucibleAetherBrewMinutes % 60)m" : "\(RunicCrucibleAetherBrewMinutes)m"
+    }
+}
+
+struct RunicCrucibleAetherBrewFinaleReplayView: View {
+    @Environment(\.dismiss) private var RunicCrucibleAetherBrewDismiss
+    @State private var RunicCrucibleAetherBrewScene = RunicCrucibleAetherBrewGameScene(size: CGSize(width: 390, height: 700))
+    @State private var RunicCrucibleAetherBrewShowsCard = false
+
+    var body: some View {
+        ZStack {
+            Image("backgroundLabRunicCrucibleAetherBrew").resizable().scaledToFill().ignoresSafeArea()
+                .overlay(Color.black.opacity(0.34))
+            SpriteView(scene: RunicCrucibleAetherBrewScene, options: [.allowsTransparency, .ignoresSiblingOrder]).ignoresSafeArea()
+            if RunicCrucibleAetherBrewShowsCard {
+                Color.black.opacity(0.58).ignoresSafeArea()
+                RunicCrucibleAetherBrewFinaleView(
+                    RunicCrucibleAetherBrewMoves: RunicCrucibleAetherBrewProgressStore.RunicCrucibleAetherBrewShared.RunicCrucibleAetherBrewBestMoves(RunicCrucibleAetherBrewLevel: 30) ?? 0,
+                    RunicCrucibleAetherBrewIsPerfect: false,
+                    RunicCrucibleAetherBrewReplayAction: RunicCrucibleAetherBrewReplay,
+                    RunicCrucibleAetherBrewHomeAction: {
+                        RunicCrucibleAetherBrewDismiss()
+                        DispatchQueue.main.async { RunicCrucibleAetherBrewAppDelegate.RunicCrucibleAetherBrewShared?.RunicCrucibleAetherBrewSelectTab(.RunicCrucibleAetherBrewHome) }
+                    },
+                    RunicCrucibleAetherBrewStatisticsAction: { RunicCrucibleAetherBrewDismiss() }
+                )
+                .padding(22)
+                .transition(.scale(scale: 0.88).combined(with: .opacity))
+            }
+        }
+        .onAppear { RunicCrucibleAetherBrewReplay() }
+    }
+
+    private func RunicCrucibleAetherBrewReplay() {
+        RunicCrucibleAetherBrewShowsCard = false
+        RunicCrucibleAetherBrewScene.RunicCrucibleAetherBrewLoad(RunicCrucibleAetherBrewShowcaseState)
+        RunicCrucibleAetherBrewScene.RunicCrucibleAetherBrewPlayFinalAscension {
+            withAnimation(.spring(response: 0.45, dampingFraction: 0.82)) { RunicCrucibleAetherBrewShowsCard = true }
+        }
+    }
+
+    private var RunicCrucibleAetherBrewShowcaseState: RunicCrucibleAetherBrewGameState {
+        let RunicCrucibleAetherBrewLevel = RunicCrucibleAetherBrewLevelCatalog.RunicCrucibleAetherBrewLoad()[29]
+        let RunicCrucibleAetherBrewAllTypes = RunicCrucibleAetherBrewLevel.RunicCrucibleAetherBrewVials.flatMap { $0 }
+        var RunicCrucibleAetherBrewVials: [RunicCrucibleAetherBrewVial] = []
+        for RunicCrucibleAetherBrewType in RunicCrucibleAetherBrewLiquidType.allCases {
+            var RunicCrucibleAetherBrewRemaining = RunicCrucibleAetherBrewAllTypes.filter { $0 == RunicCrucibleAetherBrewType }.count
+            while RunicCrucibleAetherBrewRemaining > 0 {
+                let RunicCrucibleAetherBrewCount = min(RunicCrucibleAetherBrewLevel.RunicCrucibleAetherBrewCapacity, RunicCrucibleAetherBrewRemaining)
+                RunicCrucibleAetherBrewVials.append(.init(RunicCrucibleAetherBrewTypes: Array(repeating: RunicCrucibleAetherBrewType, count: RunicCrucibleAetherBrewCount), RunicCrucibleAetherBrewCapacity: RunicCrucibleAetherBrewLevel.RunicCrucibleAetherBrewCapacity))
+                RunicCrucibleAetherBrewRemaining -= RunicCrucibleAetherBrewCount
+            }
+        }
+        while RunicCrucibleAetherBrewVials.count < RunicCrucibleAetherBrewLevel.RunicCrucibleAetherBrewVials.count { RunicCrucibleAetherBrewVials.append(.init(RunicCrucibleAetherBrewTypes: [], RunicCrucibleAetherBrewCapacity: RunicCrucibleAetherBrewLevel.RunicCrucibleAetherBrewCapacity)) }
+        return .init(RunicCrucibleAetherBrewVials: Array(RunicCrucibleAetherBrewVials.prefix(RunicCrucibleAetherBrewLevel.RunicCrucibleAetherBrewVials.count)), RunicCrucibleAetherBrewMoves: RunicCrucibleAetherBrewProgressStore.RunicCrucibleAetherBrewShared.RunicCrucibleAetherBrewBestMoves(RunicCrucibleAetherBrewLevel: 30) ?? 0, RunicCrucibleAetherBrewHintsUsed: 0, RunicCrucibleAetherBrewIsWon: true)
     }
 }
 

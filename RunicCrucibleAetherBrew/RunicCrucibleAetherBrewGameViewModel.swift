@@ -1,6 +1,12 @@
 import SwiftUI
 import Combine
 
+enum RunicCrucibleAetherBrewFinalePhase: Equatable {
+    case RunicCrucibleAetherBrewIdle
+    case RunicCrucibleAetherBrewAscending
+    case RunicCrucibleAetherBrewRevealed
+}
+
 @MainActor
 final class RunicCrucibleAetherBrewGameViewModel: ObservableObject {
     static let RunicCrucibleAetherBrewShared = RunicCrucibleAetherBrewGameViewModel()
@@ -9,6 +15,10 @@ final class RunicCrucibleAetherBrewGameViewModel: ObservableObject {
     @Published private(set) var RunicCrucibleAetherBrewMessage = "Choose a vial to begin."
     @Published private(set) var RunicCrucibleAetherBrewIsAnimating = false
     @Published private(set) var RunicCrucibleAetherBrewIsSolvingHint = false
+    @Published private(set) var RunicCrucibleAetherBrewFinalePhase: RunicCrucibleAetherBrewFinalePhase = .RunicCrucibleAetherBrewIdle
+    @Published var RunicCrucibleAetherBrewShowsFinale = false
+    @Published private(set) var RunicCrucibleAetherBrewHasCompletedFinale = RunicCrucibleAetherBrewProgressStore.RunicCrucibleAetherBrewShared.RunicCrucibleAetherBrewIsFinaleUnlocked
+    @Published private(set) var RunicCrucibleAetherBrewFinaleWasPerfect = false
     @Published var RunicCrucibleAetherBrewShowsRules = false
 
     private(set) var RunicCrucibleAetherBrewLevels = RunicCrucibleAetherBrewLevelCatalog.RunicCrucibleAetherBrewLoad()
@@ -37,6 +47,8 @@ final class RunicCrucibleAetherBrewGameViewModel: ObservableObject {
         RunicCrucibleAetherBrewSelectedIndex = nil
         RunicCrucibleAetherBrewAttemptUsedHint = false
         RunicCrucibleAetherBrewAttemptUsedUndo = false
+        RunicCrucibleAetherBrewFinalePhase = .RunicCrucibleAetherBrewIdle
+        RunicCrucibleAetherBrewShowsFinale = false
         RunicCrucibleAetherBrewMessage = RunicCrucibleAetherBrewLevel.RunicCrucibleAetherBrewTutorial
     }
 
@@ -83,7 +95,42 @@ final class RunicCrucibleAetherBrewGameViewModel: ObservableObject {
                 RunicCrucibleAetherBrewMoves: RunicCrucibleAetherBrewState.RunicCrucibleAetherBrewMoves,
                 RunicCrucibleAetherBrewIsPerfect: !RunicCrucibleAetherBrewAttemptUsedHint && !RunicCrucibleAetherBrewAttemptUsedUndo
             )
+            if RunicCrucibleAetherBrewLevel.id == 30 {
+                RunicCrucibleAetherBrewFinaleWasPerfect = !RunicCrucibleAetherBrewAttemptUsedHint && !RunicCrucibleAetherBrewAttemptUsedUndo
+                if RunicCrucibleAetherBrewProgressStore.RunicCrucibleAetherBrewShared.RunicCrucibleAetherBrewIsFinaleUnlocked {
+                    RunicCrucibleAetherBrewFinalePhase = .RunicCrucibleAetherBrewRevealed
+                    RunicCrucibleAetherBrewShowsFinale = true
+                } else {
+                    RunicCrucibleAetherBrewIsAnimating = true
+                    RunicCrucibleAetherBrewFinalePhase = .RunicCrucibleAetherBrewAscending
+                    RunicCrucibleAetherBrewAppDelegate.RunicCrucibleAetherBrewShared?.RunicCrucibleAetherBrewSetTabInteractionEnabled(false)
+                }
+            }
         }
+    }
+
+    func RunicCrucibleAetherBrewFinaleAnimationDidFinish() {
+        guard RunicCrucibleAetherBrewFinalePhase == .RunicCrucibleAetherBrewAscending else { return }
+        RunicCrucibleAetherBrewProgressStore.RunicCrucibleAetherBrewShared.RunicCrucibleAetherBrewUnlockFinale()
+        RunicCrucibleAetherBrewHasCompletedFinale = true
+        RunicCrucibleAetherBrewFinalePhase = .RunicCrucibleAetherBrewRevealed
+        RunicCrucibleAetherBrewShowsFinale = true
+        RunicCrucibleAetherBrewIsAnimating = false
+        RunicCrucibleAetherBrewAppDelegate.RunicCrucibleAetherBrewShared?.RunicCrucibleAetherBrewSetTabInteractionEnabled(true)
+    }
+
+    func RunicCrucibleAetherBrewDismissFinale(RunicCrucibleAetherBrewDestination: RunicCrucibleAetherBrewTab) {
+        RunicCrucibleAetherBrewShowsFinale = false
+        RunicCrucibleAetherBrewAppDelegate.RunicCrucibleAetherBrewShared?.RunicCrucibleAetherBrewSetTabInteractionEnabled(true)
+        RunicCrucibleAetherBrewAppDelegate.RunicCrucibleAetherBrewShared?.RunicCrucibleAetherBrewSelectTab(RunicCrucibleAetherBrewDestination)
+    }
+
+    func RunicCrucibleAetherBrewReplayFinale() {
+        guard RunicCrucibleAetherBrewHasCompletedFinale, !RunicCrucibleAetherBrewIsAnimating else { return }
+        RunicCrucibleAetherBrewShowsFinale = false
+        RunicCrucibleAetherBrewIsAnimating = true
+        RunicCrucibleAetherBrewFinalePhase = .RunicCrucibleAetherBrewAscending
+        RunicCrucibleAetherBrewAppDelegate.RunicCrucibleAetherBrewShared?.RunicCrucibleAetherBrewSetTabInteractionEnabled(false)
     }
 
     func RunicCrucibleAetherBrewUndo() -> RunicCrucibleAetherBrewGameState? {

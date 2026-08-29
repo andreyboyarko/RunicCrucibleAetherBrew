@@ -243,6 +243,97 @@ final class RunicCrucibleAetherBrewGameScene: SKScene {
         }]))
     }
 
+    func RunicCrucibleAetherBrewPlayFinalAscension(RunicCrucibleAetherBrewCompletion: @escaping () -> Void) {
+        guard !RunicCrucibleAetherBrewInputLocked else { return }
+        RunicCrucibleAetherBrewInputLocked = true
+        childNode(withName: "RunicCrucibleAetherBrewFinaleRoot")?.removeFromParent()
+        let RunicCrucibleAetherBrewReduceMotion = UIAccessibility.isReduceMotionEnabled
+        let RunicCrucibleAetherBrewCenter = CGPoint(x: size.width / 2, y: size.height * 0.56)
+        let RunicCrucibleAetherBrewFinaleRoot = SKNode()
+        RunicCrucibleAetherBrewFinaleRoot.name = "RunicCrucibleAetherBrewFinaleRoot"
+        RunicCrucibleAetherBrewFinaleRoot.zPosition = 500
+        addChild(RunicCrucibleAetherBrewFinaleRoot)
+
+        let RunicCrucibleAetherBrewOrderedVials = RunicCrucibleAetherBrewVialNodes.keys.sorted().compactMap { RunicCrucibleAetherBrewVialNodes[$0] }
+        for (RunicCrucibleAetherBrewIndex, RunicCrucibleAetherBrewVialNode) in RunicCrucibleAetherBrewOrderedVials.enumerated() {
+            let RunicCrucibleAetherBrewDelay = RunicCrucibleAetherBrewReduceMotion ? Double(RunicCrucibleAetherBrewIndex) * 0.012 : Double(RunicCrucibleAetherBrewIndex) * 0.035
+            let RunicCrucibleAetherBrewHalo = SKShapeNode(circleOfRadius: max(16, RunicCrucibleAetherBrewVialNode.frame.width * 0.38))
+            RunicCrucibleAetherBrewHalo.position = RunicCrucibleAetherBrewVialNode.position
+            RunicCrucibleAetherBrewHalo.fillColor = UIColor.systemYellow.withAlphaComponent(0.12)
+            RunicCrucibleAetherBrewHalo.strokeColor = UIColor.systemYellow.withAlphaComponent(0.9)
+            RunicCrucibleAetherBrewHalo.glowWidth = 12
+            RunicCrucibleAetherBrewHalo.alpha = 0
+            RunicCrucibleAetherBrewFinaleRoot.addChild(RunicCrucibleAetherBrewHalo)
+            RunicCrucibleAetherBrewHalo.run(.sequence([.wait(forDuration: RunicCrucibleAetherBrewDelay), .fadeIn(withDuration: 0.12), .group([.scale(to: 1.6, duration: 0.38), .fadeOut(withDuration: 0.42)]), .removeFromParent()]))
+            RunicCrucibleAetherBrewVialNode.run(.sequence([.wait(forDuration: RunicCrucibleAetherBrewDelay), .scale(to: 1.06, duration: 0.12), .scale(to: 1, duration: 0.25)]))
+        }
+
+        if !RunicCrucibleAetherBrewReduceMotion, let RunicCrucibleAetherBrewState {
+            for (RunicCrucibleAetherBrewIndex, RunicCrucibleAetherBrewVial) in RunicCrucibleAetherBrewState.RunicCrucibleAetherBrewVials.enumerated() where !RunicCrucibleAetherBrewVial.RunicCrucibleAetherBrewLayers.isEmpty {
+                guard let RunicCrucibleAetherBrewVialNode = RunicCrucibleAetherBrewVialNodes[RunicCrucibleAetherBrewIndex], let RunicCrucibleAetherBrewType = RunicCrucibleAetherBrewVial.RunicCrucibleAetherBrewLayers.last?.RunicCrucibleAetherBrewType else { continue }
+                let RunicCrucibleAetherBrewStream = SKShapeNode(circleOfRadius: 3.2)
+                RunicCrucibleAetherBrewStream.fillColor = RunicCrucibleAetherBrewType.RunicCrucibleAetherBrewVisualColor
+                RunicCrucibleAetherBrewStream.strokeColor = .white
+                RunicCrucibleAetherBrewStream.glowWidth = 9
+                RunicCrucibleAetherBrewStream.position = RunicCrucibleAetherBrewVialNode.position
+                RunicCrucibleAetherBrewStream.alpha = 0
+                RunicCrucibleAetherBrewFinaleRoot.addChild(RunicCrucibleAetherBrewStream)
+                let RunicCrucibleAetherBrewControl = CGPoint(x: (RunicCrucibleAetherBrewVialNode.position.x + RunicCrucibleAetherBrewCenter.x) / 2 + CGFloat.random(in: -36...36), y: max(RunicCrucibleAetherBrewVialNode.position.y, RunicCrucibleAetherBrewCenter.y) + 70)
+                let RunicCrucibleAetherBrewPath = CGMutablePath()
+                RunicCrucibleAetherBrewPath.move(to: RunicCrucibleAetherBrewVialNode.position)
+                RunicCrucibleAetherBrewPath.addQuadCurve(to: RunicCrucibleAetherBrewCenter, control: RunicCrucibleAetherBrewControl)
+                let RunicCrucibleAetherBrewDelay = 1.2 + Double(RunicCrucibleAetherBrewIndex % 8) * 0.045
+                RunicCrucibleAetherBrewStream.run(.sequence([.wait(forDuration: RunicCrucibleAetherBrewDelay), .fadeIn(withDuration: 0.08), .follow(RunicCrucibleAetherBrewPath, asOffset: false, orientToPath: false, duration: 1.1), .fadeOut(withDuration: 0.18), .removeFromParent()]))
+            }
+        }
+
+        let RunicCrucibleAetherBrewRuneRing = SKNode()
+        RunicCrucibleAetherBrewRuneRing.position = RunicCrucibleAetherBrewCenter
+        RunicCrucibleAetherBrewRuneRing.alpha = 0
+        RunicCrucibleAetherBrewFinaleRoot.addChild(RunicCrucibleAetherBrewRuneRing)
+        let RunicCrucibleAetherBrewRadius = min(size.width, size.height) * 0.22
+        for (RunicCrucibleAetherBrewIndex, RunicCrucibleAetherBrewType) in RunicCrucibleAetherBrewLiquidType.allCases.enumerated() {
+            let RunicCrucibleAetherBrewAngle = CGFloat(RunicCrucibleAetherBrewIndex) / CGFloat(RunicCrucibleAetherBrewLiquidType.allCases.count) * .pi * 2
+            let RunicCrucibleAetherBrewRune = SKLabelNode(text: RunicCrucibleAetherBrewType.RunicCrucibleAetherBrewEmoji)
+            RunicCrucibleAetherBrewRune.fontSize = min(25, RunicCrucibleAetherBrewRadius * 0.25)
+            RunicCrucibleAetherBrewRune.fontColor = RunicCrucibleAetherBrewType.RunicCrucibleAetherBrewVisualColor
+            RunicCrucibleAetherBrewRune.verticalAlignmentMode = .center
+            RunicCrucibleAetherBrewRune.position = CGPoint(x: cos(RunicCrucibleAetherBrewAngle) * RunicCrucibleAetherBrewRadius, y: sin(RunicCrucibleAetherBrewAngle) * RunicCrucibleAetherBrewRadius)
+            RunicCrucibleAetherBrewRuneRing.addChild(RunicCrucibleAetherBrewRune)
+        }
+        let RunicCrucibleAetherBrewRingDelay = RunicCrucibleAetherBrewReduceMotion ? 0.55 : 2.75
+        RunicCrucibleAetherBrewRuneRing.run(.sequence([.wait(forDuration: RunicCrucibleAetherBrewRingDelay), .fadeIn(withDuration: 0.28)]))
+        if !RunicCrucibleAetherBrewReduceMotion { RunicCrucibleAetherBrewRuneRing.run(.sequence([.wait(forDuration: 2.8), .rotate(byAngle: .pi * 2, duration: 1.35)])) }
+
+        let RunicCrucibleAetherBrewLogo = SKSpriteNode(imageNamed: "logoRunicCrucibleAetherBrew")
+        let RunicCrucibleAetherBrewLogoSide = min(size.width, size.height) * 0.27
+        RunicCrucibleAetherBrewLogo.size = CGSize(width: RunicCrucibleAetherBrewLogoSide, height: RunicCrucibleAetherBrewLogoSide)
+        RunicCrucibleAetherBrewLogo.position = RunicCrucibleAetherBrewCenter
+        RunicCrucibleAetherBrewLogo.alpha = 0
+        RunicCrucibleAetherBrewLogo.setScale(0.25)
+        RunicCrucibleAetherBrewLogo.blendMode = .alpha
+        RunicCrucibleAetherBrewFinaleRoot.addChild(RunicCrucibleAetherBrewLogo)
+        let RunicCrucibleAetherBrewLogoDelay = RunicCrucibleAetherBrewReduceMotion ? 0.85 : 4.0
+        RunicCrucibleAetherBrewLogo.run(.sequence([.wait(forDuration: RunicCrucibleAetherBrewLogoDelay), .group([.fadeIn(withDuration: 0.35), .scale(to: 1, duration: RunicCrucibleAetherBrewReduceMotion ? 0.35 : 0.8)]), .repeat(.sequence([.scale(to: 1.05, duration: 0.35), .scale(to: 1, duration: 0.35)]), count: 2)]))
+
+        let RunicCrucibleAetherBrewFlash = SKShapeNode(rectOf: CGSize(width: size.width * 1.5, height: size.height * 1.5))
+        RunicCrucibleAetherBrewFlash.position = RunicCrucibleAetherBrewCenter
+        RunicCrucibleAetherBrewFlash.fillColor = UIColor(red: 1, green: 0.72, blue: 0.20, alpha: 1)
+        RunicCrucibleAetherBrewFlash.strokeColor = .clear
+        RunicCrucibleAetherBrewFlash.alpha = 0
+        RunicCrucibleAetherBrewFlash.zPosition = 900
+        RunicCrucibleAetherBrewFinaleRoot.addChild(RunicCrucibleAetherBrewFlash)
+        let RunicCrucibleAetherBrewFlashDelay = RunicCrucibleAetherBrewReduceMotion ? 1.35 : 4.8
+        RunicCrucibleAetherBrewFlash.run(.sequence([.wait(forDuration: RunicCrucibleAetherBrewFlashDelay), .fadeAlpha(to: 0.72, duration: 0.10), .fadeOut(withDuration: 0.48)]))
+
+        let RunicCrucibleAetherBrewDuration = RunicCrucibleAetherBrewReduceMotion ? 2.0 : 5.8
+        run(.sequence([.wait(forDuration: RunicCrucibleAetherBrewDuration), .run { [weak self] in
+            self?.RunicCrucibleAetherBrewInputLocked = false
+            RunicCrucibleAetherBrewFeedbackManager.RunicCrucibleAetherBrewFinale()
+            RunicCrucibleAetherBrewCompletion()
+        }]))
+    }
+
     private func RunicCrucibleAetherBrewShowReactions(_ RunicCrucibleAetherBrewReactions: [RunicCrucibleAetherBrewReaction]) {
         guard !UIAccessibility.isReduceMotionEnabled else { return }
         for RunicCrucibleAetherBrewReaction in RunicCrucibleAetherBrewReactions.dropFirst() {

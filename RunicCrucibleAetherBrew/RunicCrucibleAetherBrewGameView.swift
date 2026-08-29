@@ -34,6 +34,19 @@ struct RunicCrucibleAetherBrewGameView: View {
             }
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
+            if RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewShowsFinale {
+                Color.black.opacity(0.58).ignoresSafeArea()
+                RunicCrucibleAetherBrewFinaleView(
+                    RunicCrucibleAetherBrewMoves: RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewState.RunicCrucibleAetherBrewMoves,
+                    RunicCrucibleAetherBrewIsPerfect: RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewFinaleWasPerfect,
+                    RunicCrucibleAetherBrewReplayAction: { RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewReplayFinale() },
+                    RunicCrucibleAetherBrewHomeAction: { RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewDismissFinale(RunicCrucibleAetherBrewDestination: .RunicCrucibleAetherBrewHome) },
+                    RunicCrucibleAetherBrewStatisticsAction: { RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewDismissFinale(RunicCrucibleAetherBrewDestination: .RunicCrucibleAetherBrewStatistics) }
+                )
+                .padding(22)
+                .transition(.scale(scale: 0.88).combined(with: .opacity))
+                .zIndex(20)
+            }
         }
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
@@ -60,10 +73,11 @@ struct RunicCrucibleAetherBrewGameView: View {
                         .foregroundColor(RunicCrucibleAetherBrewDesignSystem.RunicCrucibleAetherBrewGold)
                 }
                     .accessibilityLabel("Level Rules")
+                    .disabled(RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewIsAnimating)
             }
         }
         .sheet(isPresented: $RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewShowsRules) { RunicCrucibleAetherBrewRulesView(RunicCrucibleAetherBrewLevel: RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewLevel) }
-        .alert("Potion Complete!", isPresented: Binding(get: { RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewState.RunicCrucibleAetherBrewIsWon }, set: { _ in })) {
+        .alert("Potion Complete!", isPresented: Binding(get: { RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewLevel.id < 30 && RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewState.RunicCrucibleAetherBrewIsWon }, set: { _ in })) {
             Button("Next Level") {
                 RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewLoad(RunicCrucibleAetherBrewLevelNumber: min(30, RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewLevel.id + 1))
                 RunicCrucibleAetherBrewScene.RunicCrucibleAetherBrewLoad(RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewState)
@@ -79,6 +93,12 @@ struct RunicCrucibleAetherBrewGameView: View {
         .onChange(of: RunicCrucibleAetherBrewScenePhase) { RunicCrucibleAetherBrewPhase in
             if RunicCrucibleAetherBrewPhase == .active { RunicCrucibleAetherBrewProgressStore.RunicCrucibleAetherBrewShared.RunicCrucibleAetherBrewStartLaboratorySession() }
             else { RunicCrucibleAetherBrewProgressStore.RunicCrucibleAetherBrewShared.RunicCrucibleAetherBrewPauseLaboratorySession() }
+        }
+        .onChange(of: RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewFinalePhase) { RunicCrucibleAetherBrewPhase in
+            guard RunicCrucibleAetherBrewPhase == .RunicCrucibleAetherBrewAscending else { return }
+            RunicCrucibleAetherBrewScene.RunicCrucibleAetherBrewPlayFinalAscension {
+                RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewFinaleAnimationDidFinish()
+            }
         }
     }
 
@@ -111,6 +131,61 @@ struct RunicCrucibleAetherBrewGameView: View {
             .buttonStyle(.plain)
             .accessibilityLabel(RunicCrucibleAetherBrewTitle)
             .disabled(RunicCrucibleAetherBrewViewModel.RunicCrucibleAetherBrewIsAnimating)
+    }
+}
+
+struct RunicCrucibleAetherBrewFinaleView: View {
+    let RunicCrucibleAetherBrewMoves: Int
+    let RunicCrucibleAetherBrewIsPerfect: Bool
+    let RunicCrucibleAetherBrewReplayAction: () -> Void
+    let RunicCrucibleAetherBrewHomeAction: () -> Void
+    let RunicCrucibleAetherBrewStatisticsAction: () -> Void
+
+    var body: some View {
+        VStack(spacing: 14) {
+            Text("THE GRAND BREW IS COMPLETE")
+                .font(RunicCrucibleAetherBrewDesignSystem.RunicCrucibleAetherBrewSectionTitleFont)
+                .tracking(1.8)
+                .foregroundColor(RunicCrucibleAetherBrewDesignSystem.RunicCrucibleAetherBrewGold)
+                .multilineTextAlignment(.center)
+            Image("logoRunicCrucibleAetherBrew")
+                .resizable().scaledToFit().frame(width: 112, height: 112)
+                .shadow(color: RunicCrucibleAetherBrewDesignSystem.RunicCrucibleAetherBrewPurple.opacity(0.85), radius: 18)
+            Text("Master Alchemist")
+                .font(RunicCrucibleAetherBrewDesignSystem.RunicCrucibleAetherBrewScreenTitleFont)
+                .foregroundColor(RunicCrucibleAetherBrewDesignSystem.RunicCrucibleAetherBrewTextPrimary)
+            HStack(spacing: 18) {
+                Label("\(RunicCrucibleAetherBrewMoves) moves", systemImage: "drop.fill")
+                if RunicCrucibleAetherBrewIsPerfect { Label("Perfect Brew", systemImage: "star.fill") }
+            }
+            .font(RunicCrucibleAetherBrewDesignSystem.RunicCrucibleAetherBrewCaptionFont.weight(.semibold))
+            .foregroundColor(RunicCrucibleAetherBrewDesignSystem.RunicCrucibleAetherBrewGold)
+            Button("Return to Alchemy Path", action: RunicCrucibleAetherBrewHomeAction)
+                .buttonStyle(RunicCrucibleAetherBrewFinaleButtonStyle(RunicCrucibleAetherBrewIsPrimary: true))
+            Button("View Statistics", action: RunicCrucibleAetherBrewStatisticsAction)
+                .buttonStyle(RunicCrucibleAetherBrewFinaleButtonStyle(RunicCrucibleAetherBrewIsPrimary: false))
+            Button(action: RunicCrucibleAetherBrewReplayAction) {
+                Label("Replay Finale", systemImage: "sparkles")
+                    .font(RunicCrucibleAetherBrewDesignSystem.RunicCrucibleAetherBrewCaptionFont.weight(.semibold))
+                    .foregroundColor(RunicCrucibleAetherBrewDesignSystem.RunicCrucibleAetherBrewLink)
+            }
+        }
+        .padding(24)
+        .frame(maxWidth: 390)
+        .RunicCrucibleAetherBrewGlassPanel()
+        .accessibilityElement(children: .contain)
+    }
+}
+
+private struct RunicCrucibleAetherBrewFinaleButtonStyle: ButtonStyle {
+    let RunicCrucibleAetherBrewIsPrimary: Bool
+    func makeBody(configuration RunicCrucibleAetherBrewConfiguration: Configuration) -> some View {
+        RunicCrucibleAetherBrewConfiguration.label
+            .font(RunicCrucibleAetherBrewDesignSystem.RunicCrucibleAetherBrewBodyFont.weight(.bold))
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity, minHeight: 46)
+            .background(RunicCrucibleAetherBrewIsPrimary ? RunicCrucibleAetherBrewDesignSystem.RunicCrucibleAetherBrewPurple : Color.white.opacity(0.10), in: Capsule())
+            .scaleEffect(RunicCrucibleAetherBrewConfiguration.isPressed ? 0.97 : 1)
     }
 }
 

@@ -1,6 +1,14 @@
 import UIKit
 import SwiftUI
 
+enum RunicCrucibleAetherBrewTab: Int {
+    case RunicCrucibleAetherBrewHome
+    case RunicCrucibleAetherBrewBrew
+    case RunicCrucibleAetherBrewGrimoire
+    case RunicCrucibleAetherBrewStatistics
+    case RunicCrucibleAetherBrewSettings
+}
+
 @main
 final class RunicCrucibleAetherBrewAppDelegate: UIResponder, UIApplicationDelegate {
     static weak var RunicCrucibleAetherBrewShared: RunicCrucibleAetherBrewAppDelegate?
@@ -62,6 +70,15 @@ final class RunicCrucibleAetherBrewAppDelegate: UIResponder, UIApplicationDelega
 
     func RunicCrucibleAetherBrewReplayOnboarding() {
         RunicCrucibleAetherBrewWindow?.rootViewController = UIHostingController(rootView: RunicCrucibleAetherBrewOnboardingView(RunicCrucibleAetherBrewCompletion: { [weak self] in self?.RunicCrucibleAetherBrewShowTabs() }))
+    }
+
+    func RunicCrucibleAetherBrewSelectTab(_ RunicCrucibleAetherBrewTab: RunicCrucibleAetherBrewTab) {
+        guard let RunicCrucibleAetherBrewController = RunicCrucibleAetherBrewWindow?.rootViewController as? UITabBarController else { return }
+        RunicCrucibleAetherBrewController.selectedIndex = RunicCrucibleAetherBrewTab.rawValue
+    }
+
+    func RunicCrucibleAetherBrewSetTabInteractionEnabled(_ RunicCrucibleAetherBrewIsEnabled: Bool) {
+        (RunicCrucibleAetherBrewWindow?.rootViewController as? UITabBarController)?.tabBar.isUserInteractionEnabled = RunicCrucibleAetherBrewIsEnabled
     }
 
     private func RunicCrucibleAetherBrewMakeTab<RunicCrucibleAetherBrewContent: View>(RunicCrucibleAetherBrewView: RunicCrucibleAetherBrewContent, RunicCrucibleAetherBrewTitle: String, RunicCrucibleAetherBrewSymbol: String) -> UIViewController {

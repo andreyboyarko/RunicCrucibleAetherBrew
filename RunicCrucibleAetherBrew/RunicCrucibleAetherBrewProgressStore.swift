@@ -21,6 +21,7 @@ final class RunicCrucibleAetherBrewProgressStore {
         static let RunicCrucibleAetherBrewDailyStreak = "RunicCrucibleAetherBrewStatisticsDailyStreak"
         static let RunicCrucibleAetherBrewLastVictoryDay = "RunicCrucibleAetherBrewStatisticsLastVictoryDay"
         static let RunicCrucibleAetherBrewLaboratoryTime = "RunicCrucibleAetherBrewStatisticsLaboratoryTime"
+        static let RunicCrucibleAetherBrewFinaleUnlocked = "RunicCrucibleAetherBrewFinaleUnlocked"
     }
 
     private let RunicCrucibleAetherBrewDefaults: UserDefaults
@@ -32,6 +33,11 @@ final class RunicCrucibleAetherBrewProgressStore {
 
     var RunicCrucibleAetherBrewUnlockedLevel: Int { max(1, min(30, RunicCrucibleAetherBrewDefaults.integer(forKey: "RunicCrucibleAetherBrewUnlockedLevel"))) }
     var RunicCrucibleAetherBrewLastLevel: Int { max(1, min(RunicCrucibleAetherBrewUnlockedLevel, RunicCrucibleAetherBrewDefaults.integer(forKey: "RunicCrucibleAetherBrewLastLevel"))) }
+    var RunicCrucibleAetherBrewIsFinaleUnlocked: Bool { RunicCrucibleAetherBrewDefaults.bool(forKey: RunicCrucibleAetherBrewKey.RunicCrucibleAetherBrewFinaleUnlocked) }
+
+    func RunicCrucibleAetherBrewUnlockFinale() {
+        RunicCrucibleAetherBrewDefaults.set(true, forKey: RunicCrucibleAetherBrewKey.RunicCrucibleAetherBrewFinaleUnlocked)
+    }
 
     func RunicCrucibleAetherBrewBestMoves(RunicCrucibleAetherBrewLevel: Int) -> Int? {
         let RunicCrucibleAetherBrewValue = RunicCrucibleAetherBrewDefaults.integer(forKey: "RunicCrucibleAetherBrewBest_\(RunicCrucibleAetherBrewLevel)")
