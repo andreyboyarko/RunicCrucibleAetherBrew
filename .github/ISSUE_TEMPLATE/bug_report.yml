@@ -1,0 +1,44 @@
+name: Bug report
+description: Report a reproducible gameplay or interface issue
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping improve Aether Vials.
+  - type: input
+    id: level
+    attributes:
+      label: Level
+      description: Which level were you playing?
+      placeholder: "Level 18"
+  - type: input
+    id: device
+    attributes:
+      label: Device and iOS version
+      placeholder: "iPhone SE (3rd generation), iOS 18.1"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the issue and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Open level ...
+        2. Select vial ...
+        3. Tap ...
+    validations:
+      required: true
+  - type: textarea
+    id: media
+    attributes:
+      label: Screenshots or recording
+      description: Drag and drop any helpful media here.
