@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="RunicCrucibleAetherBrew/Assets.xcassets/logoRunicCrucibleAetherBrew.imageset/logoRunicCrucibleAetherBrew.png" width="168" alt="Aether Vials app icon" />
+  <img src="docs/aether-vials-social-preview.png" width="100%" alt="Aether Vials: Arcane Brew — a magical potion vial overlooking the Alchemy Path" />
 
   # Aether Vials: Arcane Brew
 
